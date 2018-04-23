@@ -4,7 +4,7 @@
 #
 Name     : R-smoother
 Version  : 1.1
-Release  : 3
+Release  : 4
 URL      : https://cran.r-project.org/src/contrib/smoother_1.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/smoother_1.1.tar.gz
 Summary  : Functions Relating to the Smoothing of Numerical Data
