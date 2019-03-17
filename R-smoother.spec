@@ -4,15 +4,21 @@
 #
 Name     : R-smoother
 Version  : 1.1
-Release  : 15
+Release  : 16
 URL      : https://cran.r-project.org/src/contrib/smoother_1.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/smoother_1.1.tar.gz
 Summary  : Functions Relating to the Smoothing of Numerical Data
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: R-TTR
+Requires: R-curl
+Requires: R-xts
+Requires: R-zoo
 BuildRequires : R-TTR
-BuildRequires : clr-R-helpers
+BuildRequires : R-curl
+BuildRequires : R-xts
+BuildRequires : R-zoo
+BuildRequires : buildreq-R
 
 %description
 No detailed description available
@@ -25,11 +31,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1521243119
+export SOURCE_DATE_EPOCH=1552850932
 
 %install
+export SOURCE_DATE_EPOCH=1552850932
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1521243119
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -64,8 +70,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library smoother|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  smoother || :
 
 
 %files
